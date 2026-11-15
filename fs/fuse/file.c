@@ -372,7 +372,7 @@ void fuse_release_common(struct file *file, bool isdir)
 	 * before commencing with fs shutdown doesn't work if submounts are
 	 * used.
 	 */
-	fuse_file_put(ff, ff->fm->fc->auto_submounts, isdir);
+        fuse_file_put(ra->inode, ff, ff->fm->fc->auto_submounts, isdir);
 }
 
 static int fuse_open(struct inode *inode, struct file *file)
